@@ -13,7 +13,7 @@ import { CreateUserDto } from '../user/dto/create-user.dto';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  // dealer login
+  //  login
   //      @Post('register')
   //   async register(@Body() body: { email: string; password: string; roleType: string }) {
   //     return this.authService.register(body.email, body.password, body.roleType);
@@ -30,25 +30,4 @@ export class AuthController {
     return this.authService.login(body.email, body.password);
   }
 
-  @Post('')
-  @UsePipes(new ValidationPipe())
-  createUser(@Body() loginUserDto: LoginUserDto) {
-    return this.authService.dealerLogin(loginUserDto);
-  }
-
-  // Admin login
-
-  @Post('adminLogin')
-  @UsePipes(new ValidationPipe())
-  adminLogin(@Body() loginUserDto: LoginUserDto) {
-    return this.authService.adminLogin(loginUserDto);
-  }
-
-  // Manager login
-
-  @Post('managerLogin')
-  @UsePipes(new ValidationPipe())
-  managerLogin(@Body() loginUserDto: LoginUserDto) {
-    return this.authService.managerLogin(loginUserDto);
-  }
 }
